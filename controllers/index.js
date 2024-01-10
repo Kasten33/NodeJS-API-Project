@@ -1,9 +1,23 @@
+const mongodb = require("../db/connect");
+const ObjectId = require("mongodb").ObjectId;
+
 const awesomeFunction = (Req, res) => {
-  res.send("Hello World!");
+  res.json("Awesome Name!");
 };
 
 const tooeleTech = (Req, res) => {
-  res.send("Tooele Tech is Awesome!");
+  res.json("Tooele Tech is Awesome!");
 };
 
-module.exports = { awesomeFunction, tooeleTech };
+const getAllStudents = async (req, res) => {
+  try {
+    const result = await mongodb.getDb().collection("students").find();
+    result.toArray().then((lists) => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(200).json(lists);
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error connecting to db", error });
+  }
+};
+module.exports = { awesomeFunction, tooeleTech, getAllStudents };
