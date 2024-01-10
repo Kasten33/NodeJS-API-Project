@@ -11,7 +11,7 @@ const tooeleTech = (Req, res) => {
 
 const getAllStudents = async (req, res) => {
   try {
-    const result = await mongodb.getDb().collection("students").find();
+    const result = await mongodb.getDb().db().collection("students").find();
     result.toArray().then((lists) => {
       res.setHeader("Content-Type", "application/json");
       res.status(200).json(lists);
