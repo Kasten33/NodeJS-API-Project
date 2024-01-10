@@ -6,19 +6,35 @@ GET http://localhost:3000/ttech HTTP/1.1
 GET http://localhost:3000 HTTP/1.1
 
 ### get all students
-GET https://localhost:3000/students HTTP/1.1
+GET http://localhost:3000/students HTTP/1.1
 
 ### get one student
-GET https://localhost:3000/students/659dd64c75547b243bc3b49c HTTP/1.1
+GET http://localhost:3000/students/659dd64c75547b243bc3b49c HTTP/1.1
 
-### creat a student
-### POST https://localhost:3000/students HTTP/1.1
-###Content-Type: application/json
+###create a student
+ POST http://localhost:3000/students HTTP/1.1
+Content-Type: application/json 
 
-###{
-  ###  "firstName": "John",
-  ###  "lastName": "Doe",
-  ###"email": "jdoe@hotmail.com",
-  ###"age":34,
-  ###  "currentCollege": "Tooele Tech",
-###}
+{  
+  "firstName": "Phil",
+  "lastName": "Reaves",
+  "email": "Browser@fear.com",
+  "age": 42,
+  "currentCollege": "Cool Tech"
+}
+
+### update a student
+PATCH http://localhost:3000/students/659f1c3df166a9dd527e7857 HTTP/1.1
+Content-Type: application/json
+
+{  
+  "firstName": "bill",
+  "lastName": "fell",
+  "email": "lol@wired.com",
+  "age": 42,
+  "currentCollege": "Wired Tech"
+}
+
+### delete a student
+DELETE http://localhost:3000/students/659f19faa042d899fc322b05 HTTP/1.1
+
