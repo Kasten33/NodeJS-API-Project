@@ -65,4 +65,10 @@ const createStudent = async (req, res) => {
     res.status(500).json(error);
   }
 };
-module.exports = { awesomeFunction, tooeleTech, getAllStudents };
+module.exports = {
+  awesomeFunction,
+  tooeleTech,
+  getAllStudents,
+  getSingleStudent,
+  createStudent,
+};
